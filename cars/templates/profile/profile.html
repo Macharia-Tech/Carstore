@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap4%}
 {% load crispy_forms_tags %}
 {% load static %}
 
@@ -8,23 +7,15 @@
 
 <div class="content-section text-center container" style="margin-top:2em;">
     <div class="media">
-        <!-- Add icon library -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <div class="card">
-            <img src="{{ user.profile.image.url }}" alt="John" style="width:100%">
-            <h1>{{ user.profile.name }}</h1>
-            <p class="title">{{user.email}}</p>
-            <p>{{user.profile.bio}}</p>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <p><button class="prof">Contact</button></p>
+        <img class="rounded-circle account-img" src="{{ user.profile.profile_image.url }}" alt="Image" width="152" height="152">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <p class="text-secondary"><b>{{ user.profile.bio }}</b></p>
         </div>
     </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-secondary btn-rounded" data-toggle="modal" data-target="#exampleModal" style="border-radius: 25px;">Edit User Info</button>
-
 
     <!-- Modal for Profile update-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,20 +35,18 @@
                         {{ u_form|crispy }}
                         {{ p_form|crispy }}
                     </fieldset>
-                    <div class="modal-footer">
-                        <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Update Info</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Update Info</button>
                     </div>
                 </form>
             </div>
-                {% comment %} <button type="button" class="btn btn-primary">Save changes</button> {% endcomment %}
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
             </div>
         </div>
     </div>
 
 </div>
-
-
 {% endblock content %}

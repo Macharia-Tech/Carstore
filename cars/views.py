@@ -44,7 +44,7 @@ def profile(request):
             u_form.save()
             p_form.save()
             
-            return render(request,'registration/profile.html')
+            return render(request,'profile/profile.html')
     else:
         u_form = UpdateUserForm(instance=request.user)
         p_form = UpdateUserProfileForm(instance=request.user.profile)
