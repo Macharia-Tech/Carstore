@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Profile
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileForm,SignUpForm,UserForm
+from .forms import SignUpForm,UserForm,UpdateUserForm,UpdateUserProfileForm
 
 # Create your views here.
 
@@ -32,19 +32,27 @@ def home(request):
 
 
 @login_required(login_url='/accounts/login/')
-def new_profile(request):
-    '''
-    Used for creating a new profile for the user. It includes a profile photo, a bio and contact 
-    '''
+def profile(request):
     current_user = request.user
-    if request.method == 'POST':
-        form = NewProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.editor = current_user
-            profile.save()
-        return redirect('home')
+    profile = Profile.objects.all()
 
+    if request.method == 'POST':
+        u_form = UpdateUserForm(request.POST,instance=request.user)
+        p_form = UpdateUserProfileForm(request.POST, request.FILES,instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            
+            return render(request,'registration/profile.html')
     else:
-        form = NewProfileForm()
-    return render(request, 'update_profile.html', {"form": form}) 
+        u_form = UpdateUserForm(instance=request.user)
+        p_form = UpdateUserProfileForm(instance=request.user.profile)
+
+
+    context = {
+        'u_form':u_form,
+        'p_form':p_form
+    }
+
+    return render(request, 'profile/profile.html',locals())

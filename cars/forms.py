@@ -19,10 +19,17 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields=('first_name','last_name','email')
-class ProfileForm(forms.ModelForm):
+
+class UpdateUserProfileForm(forms.ModelForm):
     class Meta:
-        model=Profile
-        fields = ['name','Bio','profile_image']
+        model = Profile
+        fields = ['name', 'Bio', 'profile_image']  
+class UpdateUserForm(forms.ModelForm):
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
+    class Meta:
+        model = User
+        fields = ('username', 'email')              
 class ImageForm(forms.ModelForm):
     class Meta:
         model=Image
