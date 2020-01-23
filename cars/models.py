@@ -53,10 +53,78 @@ class Image(models.Model):
     def get_image(cls):
         images=Profile.objects.all()
         return images
-    def total_likes(self):
-        return self.likes.count()
+ 
 class Comment (models.Model):
     comment=models.CharField(max_length=50)
     image=models.ForeignKey(Image, on_delete = models.CASCADE)
     user=models.ForeignKey(User, on_delete = models.CASCADE)
 
+class gari(models.Model):
+    brand=models.CharField(max_length=30)
+    model=models.CharField(max_length=20)
+    image=models.ImageField(upload_to = 'images/', blank=True)
+    description=models.CharField(max_length=255)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        '''
+        Setting up self
+        '''
+        return self.brand
+
+     def save_gar(self):
+        '''
+        Method for saving the gari
+        '''
+        self.save()
+
+    
+    def delete_gari(self):
+        '''
+        Method for deleting the gari
+        '''
+        self.delete()
+
+     @classmethod
+    def get_garis(cls):
+        '''
+        Method for retrieving all images
+        '''
+        gari=cls.objects.all()
+        return gari
+
+
+    @classmethod
+    def user_garis(cls,user_id):
+        '''
+        function gets garis posted by id
+        '''
+        gari_posted=cls.objects.filter(user=user_id)
+        return gari_posted    
+
+
+    @classmethod
+    def search_by_title(cls,tag):
+        '''
+        Method for searching for a gari using the title
+        '''
+
+        search_result=cls.objects.filter(brand__icontains=tag)
+        return search_result
+
+    @classmethod
+    def single_gari(cls,gari_id):
+        '''
+        function gets a single gari posted by id
+        '''
+        gari_posted=cls.objects.get(id=gari_id)
+        return gari_posted
+
+    @classmethod
+    def get_image_id(cls,imageId):
+        '''
+        function that gets an image id    
+        '''
+        image_id=cls.objects.filter(id=imageId)
+        return image_id

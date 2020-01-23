@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="bs-example">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a href="#" class="navbar-brand" style="background-color: red;">D'WYCK MOTORS</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -25,8 +25,7 @@
 
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="/home" class="nav-item nav-link active">Home</a>
-                <a href="/profile" class="nav-item nav-link">Profile</a>
+                <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
                 <a href="#" class="nav-item nav-link">Sell</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buy</a>
@@ -45,6 +44,7 @@
                 </div>
             </form>
             <div class="navbar-nav">
+                <a href="{% url 'profile' %}" class="nav-item nav-link">Profile</a>
                 <a href="/logout" class="nav-item nav-link">Logout</a>
             </div>
         </div>

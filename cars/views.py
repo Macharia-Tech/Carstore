@@ -56,3 +56,13 @@ def profile(request):
     }
 
     return render(request, 'profile/profile.html',locals())
+
+class GariList(APIView):
+    '''
+    End point that returns all garis posted and the details such as title,
+    image,description 
+    '''
+    def get(self, request, format=None):
+        all_gari = Gari.objects.all()
+        serializers = GariSerializer(all_gari, many=True)
+        return Response(serializers.data)
