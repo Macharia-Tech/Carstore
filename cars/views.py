@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Profile
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm,UserForm,UpdateUserForm,UpdateUserProfileForm
-
+from rest_framework.views import APIView
 # Create your views here.
 
 def signup(request):

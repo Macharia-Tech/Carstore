@@ -73,7 +73,7 @@ class gari(models.Model):
         '''
         return self.brand
 
-     def save_gar(self):
+    def save_gari(self):
         '''
         Method for saving the gari
         '''
@@ -86,7 +86,7 @@ class gari(models.Model):
         '''
         self.delete()
 
-     @classmethod
+    @classmethod
     def get_garis(cls):
         '''
         Method for retrieving all images
