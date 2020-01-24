@@ -6,3 +6,219 @@
 {{block.super}}
     
 {% endblock %}
+
+<!-- Navigation -->
+{% if user.is_authenticated %}
+
+<!-- <main>
+	<div class="container">
+		<div class="carousel slide" id="main-carousel" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#main-carousel" data-slide-to="1"></li>
+				<li data-target="#main-carousel" data-slide-to="2"></li>
+				<li data-target="#main-carousel" data-slide-to="3"></li>
+			</ol><!-- /.carousel-indicators -->
+			
+			<div class="carousel-inner"  style= "width:1200px ;height: 500px;">
+				<div class="carousel-item active">
+					<img class="d-block img-fluid"  style= "width:1200px; height: 500px;"src="https://s19.postimg.cc/qzj5uncgj/slide1.jpg" alt="">
+					<div class="carousel-caption d-none d-md-block">
+            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="d-block img-fluid" style= "width:1200px;height: 500px;" src="https://s19.postimg.cc/lmubh3h0j/slide2.jpg" alt="">
+					<div class="carousel-caption d-none d-md-block">
+            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+						<p></p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="d-block img-fluid" style= "width:1200px;height: 500px;" src="https://s19.postimg.cc/99hh9lr5v/slide3.jpg" alt="">
+					<div class="carousel-caption d-none d-md-block">
+            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+						<p>Lets evaluate it</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img style= "width:1200px; height: 500px;"src ="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="" class="d-block img-fluid">
+					<div class="carousel-caption d-none d-md-block">
+            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+						<p></p>
+					</div>
+				</div>
+			</div><!-- /.carousel-inner -->
+			
+			<a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+				<span class="sr-only" aria-hidden="true">Prev</span>
+			</a>
+			<a href="#main-carousel" class="carousel-control-next" data-slide="next">
+				<span class="carousel-cont{% extends 'main/base.html' %}
+                {% load bootstrap4 %}
+                {% load static %}
+                {%block content%}
+                
+                <!-- Navigation -->
+                {% if user.is_authenticated %}
+                
+                <main>
+                    <div class="container">
+                        <div class="carousel slide" id="main-carousel" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#main-carousel" data-slide-to="1"></li>
+                                <li data-target="#main-carousel" data-slide-to="2"></li>
+                                <li data-target="#main-carousel" data-slide-to="3"></li>
+                            </ol><!-- /.carousel-indicators -->
+                            
+                            <div class="carousel-inner"  style= "width:1200px ;height: 500px;">
+                                <div class="carousel-item active">
+                                    <img class="d-block img-fluid"  style= "width:1200px; height: 500px;"src="https://s19.postimg.cc/qzj5uncgj/slide1.jpg" alt="">
+                                    <div class="carousel-caption d-none d-md-block">
+                            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block img-fluid" style= "width:1200px;height: 500px;" src="https://s19.postimg.cc/lmubh3h0j/slide2.jpg" alt="">
+                                    <div class="carousel-caption d-none d-md-block">
+                            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block img-fluid" style= "width:1200px;height: 500px;" src="https://s19.postimg.cc/99hh9lr5v/slide3.jpg" alt="">
+                                    <div class="carousel-caption d-none d-md-block">
+                            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+                                        <p>Lets evaluate it</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img style= "width:1200px; height: 500px;"src ="https://s19.postimg.cc/nenabzsnn/slide4.jpg" alt="" class="d-block img-fluid">
+                                    <div class="carousel-caption d-none d-md-block">
+                            <h3 class ="mb-4" style=" font-size:150px;color:black;font-family: 'Niconne', cursive;">PROJECT RATOR</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div><!-- /.carousel-inner -->
+                            
+                            <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                                <span class="sr-only" aria-hidden="true">Prev</span>
+                            </a>
+                            <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                                <span class="sr-only" aria-hidden="true">Next</span>
+                            </a>
+                        </div><!-- /.carousel -->
+                    </div><!-- /.container -->
+                 -->
+                <!-- Portfolio -->
+                <section class="content-section" id="portfolio">
+                  <div class="container">
+                    <div class="content-section-heading text-center">
+                      <!-- <a class="btn btn-primary btn-xl js-scroll-trigger text-center" href="#homepage"></a> -->
+                      <!-- <h3 class="text-secondary mb-0">Posts</h3> -->
+                      <!-- <h2 class="mb-5">Recent Projects</h2> -->
+                      <div class="row no-gutters">
+                        {%for garis in allgaris%}
+                        <div class="col-lg-6">
+                          <a class="portfolio-item" href="{%url 'project' projects.id%}">
+                            <span class="caption">
+                              <span class="caption-content">
+                                <h1 class="btn btn-outline-danger">{{garis.title}}</h1>
+                              </span>
+                            </span>
+                  
+                          </a>
+                        </div>
+                        {%endfor%}
+                  
+                      </div>
+                    </div>
+                
+                
+                    
+                  </div>
+                
+                </section>
+                
+                
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+                  <i class="fas fa-angle-up"></i>
+                </a>
+                
+                {% endif %}
+                {%endblock%}rol-next-icon"></span>
+				<span class="sr-only" aria-hidden="true">Next</span>
+			</a>
+		</div><!-- /.carousel -->
+	</div><!-- /.container -->
+
+<!-- Portfolio -->
+<section class="content-section" id="portfolio">
+  <div class="container">
+    <div class="content-section-heading text-center">
+      <!-- <a class="btn btn-primary btn-xl js-scroll-trigger text-center" href="#homepage"></a> -->
+      <!-- <h3 class="text-secondary mb-0">Posts</h3> -->
+      <h2 class="mb-5">Recent Projects</h2>
+      <div class="row no-gutters">
+        {%for projects in allprojects%}
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="{%url 'project' projects.id%}">
+            <span class="caption">
+              <span class="caption-content">
+                <h1 class="btn btn-outline-danger">{{garis.title}}</h1>
+              </span>
+            </span>
+  
+          </a>
+        </div>
+        {%endfor%}
+  
+      </div>
+    </div>
+
+
+    
+  </div>
+
+</section>
+
+<!-- Call to Action -->
+<section class="content-section bg-primary text-white">
+  <div class="container text-center">
+    <div class="container">
+      <h2 class="list-inline mb-5">
+        <h1 class="list-inline-item" href="#">
+          <a>
+            <i class="icon-social-facebook"></i>
+          </a>
+        </h1>
+        <h1 class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="#">
+            <i class="icon-social-twitter"></i>
+          </a>
+        </h1>
+        <h1 class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="#">
+            <i class="icon-social-github"></i>
+          </a>
+        </h1>
+      </h2>
+    </div>
+
+    <h2 class="mb-4">Copyright &copy; D'WYCK-MOTORS</h2>
+
+  </div>
+</section>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+{% endif %}
+{%endblock%}

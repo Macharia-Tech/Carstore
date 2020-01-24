@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile,Image,Comment
+from .models import Profile,Image,Comment,Gari
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -38,3 +38,13 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model=Comment
         fields = ['comment']
+
+
+class NewGariForm(forms.ModelForm):
+    class Meta:
+        model = Gari
+        exclude = ['user','profile','pub_date']
+        widgets = {
+            'tags': forms.CheckboxSelectMultiple(),
+        }
+        

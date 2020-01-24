@@ -59,12 +59,13 @@ class Comment (models.Model):
     image=models.ForeignKey(Image, on_delete = models.CASCADE)
     user=models.ForeignKey(User, on_delete = models.CASCADE)
 
-class gari(models.Model):
+class Gari(models.Model):
     brand=models.CharField(max_length=30)
     model=models.CharField(max_length=20)
     image=models.ImageField(upload_to = 'images/', blank=True)
     description=models.CharField(max_length=255)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    price = models.DecimalField(decimal_places=2, max_digits=20)
 
 
     def __str__(self):
@@ -105,7 +106,7 @@ class gari(models.Model):
 
 
     @classmethod
-    def search_by_title(cls,tag):
+    def search_by_brand(cls,tag):
         '''
         Method for searching for a gari using the title
         '''

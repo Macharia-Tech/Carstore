@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{%load bootstrap4%}
+{%load static%}
+{{block.super}}
+
+
+{%block content%}
+{{form.media}}
+
+
+
+
+<!-- Navigation -->
+{% if user.is_authenticated %}
+
+
+<body>
+
+<!-- Callout -->
+<section class="callout">
+  <div class="container text-center" style="background-color: turquoise;">
+
+    <div class="col-lg-7 my-auto">
+
+
+      <form action="{% url 'add-project' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-outline-success" value="Upload">
+      </form>
+
+      <div class="button">
+        <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+
