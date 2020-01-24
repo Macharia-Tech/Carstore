@@ -19,16 +19,16 @@ from decouple import config,Csv
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MODE=config("MODE", default="dev")
-SECRET_KEY = config('342s(s(!hsjd998sde8$=o4$3m!(o+kce2^97kp6#ujhi')
+SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'carstore',
-            'USER': 'macharia',
-            'PASSWORD':'123masha123',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
             'HOST': config('DB_HOST'),
             'PORT': '',
        }
@@ -46,7 +46,6 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -154,7 +153,7 @@ STATICFILES_DIRS = (
 )
 
 
- Simplified static file serving.
+#Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -165,4 +164,4 @@ LOGIN_REDIRECT_URL='/'
 
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals()
+django_heroku.settings(locals())
