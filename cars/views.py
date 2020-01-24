@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Profile
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm,UserForm,UpdateUserForm,UpdateUserProfileForm,NewUsedForm,NewCarForm
+from .forms import SignUpForm,UserForm,UpdateUserForm,UpdateUserProfileForm,NewGariForm,NewUsedForm,NewCarForm
 from .models import Gari,Profile
 from .serializer import ProfileSerializer,GariSerializer
 from rest_framework.views import APIView
@@ -81,22 +81,22 @@ class GariList(APIView):
         return Response(serializers.data)
 
     
-# @login_required(login_url='/accounts/login/')
-# def sell_gari(request):
-#     current_user = request.user
-#     print(current_user)
-#     if request.method == 'POST':
-#         form = NewGariForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             gari = form.save(commit=False)
-#             gari.user = request.user
+@login_required(login_url='/accounts/login/')
+def sell_gari(request):
+    current_user = request.user
+    print(current_user)
+    if request.method == 'POST':
+        form = NewGariForm(request.POST, request.FILES)
+        if form.is_valid():
+            gari = form.save(commit=False)
+            gari.user = request.user
           
-#             gari.save()
-#         return redirect('home')
+            gari.save()
+        return redirect('home')
 
-#     else:
-#         form = NewGariForm()
-#     return render(request, 'sell_gari.html', {"form": form})
+    else:
+        form = NewGariForm()
+    return render(request, 'sell_gari.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
 def used_gari(request):

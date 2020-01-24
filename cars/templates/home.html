@@ -62,22 +62,20 @@
     <div class="content-section-heading text-center">
       <!-- <a class="btn btn-primary btn-xl js-scroll-trigger text-center" href="#homepage"></a> -->
       <!-- <h3 class="text-secondary mb-0">Posts</h3> -->
-      <!-- <h2 class="mb-5">Recent Projects</h2> -->
+         <h2 class="mb-5">Cars Posted</h2>
       <div class="row no-gutters">
         {%for garis in allgaris%}
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="{%url 'gari' garis.id%}">
-            <span class="caption">
-              <span class="caption-content">
-                <h1 class="btn btn-outline-danger">{{garis.brand}}</h1>
-              </span>
-            </span>
-  
-          </a>
+        <div class="col-md-3" style="background-color:whitesmoke;">
+            <div class="card" style="width: 18rem;">
+                <a href="{%url 'gari' garis.id%}"><img src='{{garis.image.url}}' class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text">
+              </div>
         </div>
+    </div>
         {%endfor%}
   
-      </div>
     </div>
 
 

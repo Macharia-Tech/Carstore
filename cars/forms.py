@@ -40,13 +40,13 @@ class CommentForm(forms.ModelForm):
         fields = ['comment']
 
 
-# class NewGariForm(forms.ModelForm):
-#     class Meta:
-#         model = Gari
-#         exclude = ['user','profile','pub_date']
-#         widgets = {
-#             'tags': forms.CheckboxSelectMultiple(),
-#         }
+class NewGariForm(forms.ModelForm):
+    class Meta:
+        model = Gari
+        exclude = ['user','profile','pub_date']
+        widgets = {
+            'tags': forms.CheckboxSelectMultiple(),
+        }
         
 class NewUsedForm(forms.ModelForm):
     class Meta:

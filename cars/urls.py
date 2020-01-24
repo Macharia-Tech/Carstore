@@ -11,7 +11,7 @@ urlpatterns=[
     url('^profile/',views.profile, name='profile'),
     url(r'^api/gari/$',views.GariList.as_view()),
     url(r'^gari/(\d+)',views.single_gari, name='gari'),
-    # url(r'^sell/gari$', views.sell_gari, name='sell-gari'),
+    url(r'^sell/gari$', views.sell_gari, name='sell-gari'),
     url(r'^used/gari$', views.used_gari, name='used-gari'),
     url(r'^new/gari$', views.new_gari, name='new-gari'),
     # url(r'^images/',views.add_image,name='Image'),
