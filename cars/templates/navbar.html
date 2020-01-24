@@ -26,23 +26,16 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Sell</a>
+               
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buy</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sell-It</a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">used</a>
-                        <a href="#" class="dropdown-item">new</a>
+                        <a href="{% url 'used-gari' %}" class="dropdown-item">used</a>
+                        <a href="{% url 'new-gari' %}" class="dropdown-item">new</a>
                     </div>
                 </div>
             </div>
-            <form class="form-inline">
-                <div class="input-group">                    
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+            
             <div class="navbar-nav">
                 <a href="{% url 'profile' %}" class="nav-item nav-link">Profile</a>
                 <a href="/logout" class="nav-item nav-link">Logout</a>

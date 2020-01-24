@@ -55,17 +55,17 @@ class Image(models.Model):
         return images
  
 class Comment (models.Model):
-    comment=models.CharField(max_length=50)
+    comment=models.CharField(max_length=30)
     image=models.ForeignKey(Image, on_delete = models.CASCADE)
     user=models.ForeignKey(User, on_delete = models.CASCADE)
 
 class Gari(models.Model):
-    brand=models.CharField(max_length=255)
-    model=models.CharField(max_length=255)
+    brand=models.CharField(max_length=25)
+    model=models.CharField(max_length=25)
     image=models.ImageField(upload_to = 'images/', blank=True)
-    description=models.CharField(max_length=255)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    price = models.CharField(max_length=255)
+    description=models.TextField(max_length=225)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    price=models.IntegerField(default=0)
 
 
     def __str__(self):

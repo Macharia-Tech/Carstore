@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Profile
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm,UserForm,UpdateUserForm,UpdateUserProfileForm,NewGariForm
+from .forms import SignUpForm,UserForm,UpdateUserForm,UpdateUserProfileForm,NewUsedForm,NewCarForm
 from .models import Gari,Profile
 from .serializer import ProfileSerializer,GariSerializer
 from rest_framework.views import APIView
@@ -81,19 +81,79 @@ class GariList(APIView):
         return Response(serializers.data)
 
     
+# @login_required(login_url='/accounts/login/')
+# def sell_gari(request):
+#     current_user = request.user
+#     print(current_user)
+#     if request.method == 'POST':
+#         form = NewGariForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             gari = form.save(commit=False)
+#             gari.user = request.user
+          
+#             gari.save()
+#         return redirect('home')
+
+#     else:
+#         form = NewGariForm()
+#     return render(request, 'sell_gari.html', {"form": form})
+
 @login_required(login_url='/accounts/login/')
-def sell_gari(request):
+def used_gari(request):
     current_user = request.user
     print(current_user)
     if request.method == 'POST':
-        form = NewGariForm(request.POST, request.FILES)
+        form = NewUsedForm(request.POST, request.FILES)
         if form.is_valid():
             gari = form.save(commit=False)
-            gari.editor = request.user
+            gari.user = request.user
           
             gari.save()
         return redirect('home')
 
     else:
-        form = NewGariForm()
-    return render(request, 'sell_gari.html', {"form": form})
+        form = NewUsedForm()
+    return render(request, 'used.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def new_gari(request):
+    current_user = request.user
+    print(current_user)
+    if request.method == 'POST':
+        form = NewCarForm(request.POST, request.FILES)
+        if form.is_valid():
+            gari = form.save(commit=False)
+            gari.user = request.user
+          
+            gari.save()
+        return redirect('home')
+
+    else:
+        form = NewCarForm()
+    return render(request, 'new.html', {"form": form})    
+
+
+def single_gari(request,gari_id):
+    '''
+    This method displays a single photo and its details such as comments, date posted and caption
+    '''
+
+    gari_posted=Gari.single_gari(gari_id)  
+    imageId=Gari.get_image_id(gari_id)
+
+
+    return render(request,'gari.html',{"gari":gari_posted})
+
+def search_brand(request):
+    '''
+    This method searches for an image by using the name of the image
+    '''
+    if 'brand' in request.GET and request.GET["brand"]:
+        search_term=request.GET.get("brand")
+        searched_brands=Gari.search_by_brand(search_term)
+        message=f"{search_term}"
+
+        return render(request,"search.html",{"message":message,"brands":searched_brands})
+    else:
+        message="You haven't searched for any term"
+        return render(request,'search.html',{"message":message})    
