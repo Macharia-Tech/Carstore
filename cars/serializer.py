@@ -9,5 +9,5 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 class GariSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Project
-        fields = ('title', 'image', 'description','user','profile','pub_date','price')
+        model = Gari
+        fields = ('brand', 'image', 'description','user','profile','pub_date','price')

@@ -6,8 +6,9 @@ from . import views
 urlpatterns=[
      url(r'^signup/',views.signup,name='signup'),
     url('^$',views.home,name='home'),
+    url(r'^sell/gari$',views.sell_gari, name='sell-gari'),
     url('^profile/',views.profile, name='profile'),
-    url(r'^api/gari/$',viewGariList.as_view()),
+    url(r'^api/gari/$',views.GariList.as_view()),
     # url(r'^images/',views.add_image,name='Image'),
 ]
 

@@ -60,12 +60,12 @@ class Comment (models.Model):
     user=models.ForeignKey(User, on_delete = models.CASCADE)
 
 class Gari(models.Model):
-    brand=models.CharField(max_length=30)
-    model=models.CharField(max_length=20)
+    brand=models.CharField(max_length=255)
+    model=models.CharField(max_length=255)
     image=models.ImageField(upload_to = 'images/', blank=True)
     description=models.CharField(max_length=255)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    price = models.DecimalField(decimal_places=2, max_digits=20)
+    price = models.CharField(max_length=255)
 
 
     def __str__(self):
