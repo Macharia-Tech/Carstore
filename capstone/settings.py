@@ -28,7 +28,7 @@ if config('MODE')=="dev":
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'carstore',
             'USER': 'macharia',
-            'PASSWORD':'123masha123'
+            'PASSWORD':'123masha123',
             'HOST': config('DB_HOST'),
             'PORT': '',
        }
